@@ -6,6 +6,7 @@ export const SET_JOB = "SET_JOB";
 
 export const favouriteCompanyDispatch = (company) => ({ type: REMOVE_FAVOURITE, payload: company._id });
 export const getJobsDispatch = (data) => ({ type: SET_JOB, payload: data });
+export const selectCompaniDispatch = (data) => ({ type: SELECT_COMPANY, payload: data });
 
 export const getJobs = (params) => {
   return async (dispatch, getState) => {

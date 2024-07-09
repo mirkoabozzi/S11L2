@@ -1,7 +1,7 @@
 import { Row, Col, Button } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { SELECT_COMPANY } from "../redux/actions";
+import { selectCompaniDispatch } from "../redux/actions";
 
 const Job = ({ data }) => {
   const dispatch = useDispatch();
@@ -12,16 +12,7 @@ const Job = ({ data }) => {
         <Link to={`/${data.company_name}`}>{data.company_name}</Link>
       </Col>
       <Col xs="3">
-        <Button
-          variant="white"
-          className="ms-2"
-          onClick={() =>
-            dispatch({
-              type: SELECT_COMPANY,
-              payload: data,
-            })
-          }
-        >
+        <Button variant="white" className="ms-2" onClick={() => dispatch(selectCompaniDispatch(data))}>
           ❤️
         </Button>
       </Col>
