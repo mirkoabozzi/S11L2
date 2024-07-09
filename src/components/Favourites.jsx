@@ -1,7 +1,7 @@
 import { Button, Col, Container, ListGroup, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { REMOVE_FAVOURITE } from "../redux/actions";
+import { favouriteCompanyDispatch, REMOVE_FAVOURITE } from "../redux/actions";
 
 const Favourites = () => {
   const favouritesCompany = useSelector((state) => state.favourites.content);
@@ -23,7 +23,7 @@ const Favourites = () => {
                   variant="white"
                   className="m-2"
                   onClick={() => {
-                    dispatch({ type: REMOVE_FAVOURITE, payload: company._id });
+                    dispatch(favouriteCompanyDispatch(company));
                   }}
                 >
                   🗑️

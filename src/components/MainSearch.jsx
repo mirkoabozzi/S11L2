@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Container, Row, Col, Form, Spinner } from "react-bootstrap";
 import Job from "./Job";
 import { useDispatch, useSelector } from "react-redux";
+import { GET_JOB_LOADING_OFF, GET_JOB_LOADING_ON } from "../redux/actions";
 
 const MainSearch = () => {
   const [query, setQuery] = useState("");
@@ -21,14 +22,14 @@ const MainSearch = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    dispatch({ type: "GET_JOB_LOADING_ON" });
+    dispatch({ type: GET_JOB_LOADING_ON });
 
     try {
       const response = await fetch(baseEndpoint + query + "&limit=20");
       if (response.ok) {
         const { data } = await response.json();
         setJobs(data);
-        dispatch({ type: "GET_JOB_LOADING_OFF" });
+        dispatch({ type: GET_JOB_LOADING_OFF });
       } else {
         alert("Error fetching results");
       }

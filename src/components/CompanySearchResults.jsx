@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Container, Row, Col, Spinner } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import Job from "./Job";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,7 +9,7 @@ const CompanySearchResults = () => {
   // const [jobs, setJobs] = useState([]);
   const params = useParams();
 
-  const jobs = useSelector((state) => state.searchResult.content);
+  const jobs = useSelector((state) => state.searchReducer.content);
   const dispatch = useDispatch();
 
   useEffect(() => {
