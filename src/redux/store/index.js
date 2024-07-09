@@ -4,7 +4,7 @@ import searchReducer from "../reducers/searchReducer";
 
 const rootReducer = combineReducers({
   favourites: selectCompanyReducer,
-  searchResult: searchReducer,
+  searchReducer: searchReducer,
 });
 
 const store = configureStore({
